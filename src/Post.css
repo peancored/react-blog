@@ -1,0 +1,15 @@
+.post {
+  display: flex;
+}
+
+:local(.title) {
+  margin: 0;
+  margin-left: 10px;
+}
+
+:local(.image) {
+  display: block;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
+}
