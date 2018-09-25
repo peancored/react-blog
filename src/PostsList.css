@@ -1,4 +1,4 @@
-.posts-list .post + .post {
+:local(.postsList) :local(.post) + :local(.post) {
   margin-top: 10px;
 }
 
