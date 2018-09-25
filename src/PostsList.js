@@ -17,7 +17,7 @@ class PostsList extends Component {
     });
 
     return (
-      <div className="posts-list">
+      <div className={styles.postsList}>
         {postItems}
       </div>
     );

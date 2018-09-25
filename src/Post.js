@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import styles from './Post.css';
 
 class Post extends Component {
+  static defaultProps = {
+    className: ''
+  };
+
   render() {
     return (
-      <div className="post">
+      <div className={`${styles.post} ${this.props.className}`}>
         <img
           className={styles.image}
           src={this.props.image}
