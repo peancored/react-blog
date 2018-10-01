@@ -1,4 +1,9 @@
-:local(.postsList) :local(.post) + :local(.post) {
-  margin-top: 10px;
+.posts-list {
+  max-width: 780px;
+  margin: 20px auto;
+}
+
+.posts-list .post + .post {
+  margin-top: 15px;
 }
 

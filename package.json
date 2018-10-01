@@ -14,6 +14,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "eslint-config-vaadin": "^0.2.7"
+    "eslint-config-vaadin": "^0.2.7",
+    "faker": "^4.1.0"
   }
 }
