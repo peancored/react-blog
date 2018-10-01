@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import faker from 'faker';
 import './App.css';
 
 import Navbar from './Navbar';
@@ -14,13 +15,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(posts => posts.map((post, index) => {
-        post.image = `https://unsplash.it/500/500?random&i=${index}`;
-        return post;
-      }))
-      .then(posts => this.setState({posts: posts}));
+    const posts = (new Array(20)).fill(null).map((item, index) => ({
+      id: faker.random.uuid(),
+      image: `https://unsplash.it/500/500?random&i=${index}`,
+      topic: faker.lorem.word(),
+      body: faker.lorem.paragraphs(20),
+      author: faker.name.findName(),
+      createdAt: faker.date.past(),
+      readingTime: faker.random.number({min: 0, max: 30}),
+      title: faker.lorem.words(5)
+    }));
+
+    this.setState({posts: posts});
   }
 
   render() {
