@@ -1,6 +1,7 @@
 .post {
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .post__content {

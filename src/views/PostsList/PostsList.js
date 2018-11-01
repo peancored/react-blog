@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import './PostsList.css';
 
-import Post from './Post'
+import Post from '../../components/Post/Post'
 
 class PostsList extends Component {
+  constructor() {
+    super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.handleClick(e);
+  }
+
   render() {
     const postItems = this.props.posts.map((post) => {
       return (
@@ -16,6 +26,7 @@ class PostsList extends Component {
           readingTime={post.readingTime}
           title={post.title}
           image={post.image}
+          onClick={this.handleClick}
         />
       );
     });

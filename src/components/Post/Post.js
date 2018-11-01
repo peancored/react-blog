@@ -4,7 +4,7 @@ import './Post.css';
 class Post extends Component {
   render() {
     return (
-      <div className={`post`}>
+      <div className="post" onClick={this.props.onClick}>
         <div className="post__content">
           <div className="post__topic">
             { this.props.topic }
