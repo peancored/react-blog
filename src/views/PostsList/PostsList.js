@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './PostsList.css';
+import { withRouter } from 'react-router-dom';
 
 import Post from '../../components/Post/Post'
 
@@ -7,11 +8,11 @@ class PostsList extends Component {
   constructor() {
     super();
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handlePostClick = this.handlePostClick.bind(this);
   }
 
-  handleClick(e) {
-    this.props.handleClick(e);
+  handlePostClick(event, postId) {
+    this.props.history.push(`/post-details/${postId}`);
   }
 
   render() {
@@ -26,7 +27,7 @@ class PostsList extends Component {
           readingTime={post.readingTime}
           title={post.title}
           image={post.image}
-          onClick={this.handleClick}
+          onClick={(e) => this.handlePostClick(e, post.id)}
         />
       );
     });
@@ -39,4 +40,4 @@ class PostsList extends Component {
   }
 }
 
-export default PostsList;
+export default withRouter(PostsList);
