@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+
+import {
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
+
 import faker from 'faker';
 import './App.css';
 
-import Navbar from './Navbar';
-import PostsList from './PostsList';
+import Navbar from './components/Navbar/Navbar';
+import PostsList from './views/PostsList/PostsList';
 
 class App extends Component {
   constructor(props) {
@@ -12,6 +19,12 @@ class App extends Component {
     this.state = {
       posts: []
     };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    console.log('clicked');
   }
 
   componentDidMount() {
@@ -31,10 +44,20 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Navbar />
-        <PostsList posts={this.state.posts} />
-      </React.Fragment>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={
+            (props) => (
+              <PostsList
+                { ...props }
+                posts={this.state.posts}
+                handleClick={this.handleClick}
+              />
+            )
+          }/>
+      </Switch>
     );
   }
 }
