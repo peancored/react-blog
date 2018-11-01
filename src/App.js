@@ -44,20 +44,23 @@ class App extends Component {
 
   render() {
     return (
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={
-            (props) => (
-              <PostsList
-                { ...props }
-                posts={this.state.posts}
-                handleClick={this.handleClick}
-              />
-            )
-          }/>
-      </Switch>
+      <React.Fragment>
+        <Navbar></Navbar>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={
+              (props) => (
+                <PostsList
+                  { ...props }
+                  posts={this.state.posts}
+                  handleClick={this.handleClick}
+                />
+              )
+            }/>
+        </Switch>
+      </React.Fragment>
     );
   }
 }

@@ -1,5 +1,10 @@
 .navbar {
   width: 100%;
   background: #bada55;
-  height: 50px;
+  padding: 10px 30px;
+}
+
+.navbar__logo {
+  font-weight: bold;
+  font-size: 35px;
 }

@@ -5,6 +5,9 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
+        <div className="navbar__logo">
+          Tony Blog
+        </div>
       </div>
     );
   }
