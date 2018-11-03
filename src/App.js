@@ -10,8 +10,8 @@ import faker from 'faker';
 import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
-import PostsList from './views/PostsList/PostsList';
-import PostDetails from './views/PostDetails/PostDetails';
+import PostsList from './components/PostsList/PostsList';
+import PostDetails from './components/PostDetails/PostDetails';
 
 class App extends Component {
   constructor(props) {
