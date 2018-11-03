@@ -12,10 +12,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "fake-server": "node ./fake-data/fake-server.js"
   },
   "devDependencies": {
+    "cors": "^2.8.4",
     "eslint-config-vaadin": "^0.2.7",
+    "express": "^4.16.4",
     "faker": "^4.1.0"
   }
 }
