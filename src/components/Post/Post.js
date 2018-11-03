@@ -3,6 +3,8 @@ import './Post.css';
 
 class Post extends Component {
   render() {
+    const createdAt = new Date(this.props.createdAt);
+
     return (
       <div className="post" onClick={this.props.onClick}>
         <div className="post__content">
@@ -24,7 +26,7 @@ class Post extends Component {
 
           <div className="post__additional-info">
             <div className="post__created-at">
-              { `${this.props.createdAt.toLocaleString('en-en', {month: 'short'})} ${this.props.createdAt.getDate()}` }
+              { `${createdAt.toLocaleString('en-en', {month: 'short'})} ${createdAt.getDate()}` }
             </div>
 
             <div className="post__divider"></div>

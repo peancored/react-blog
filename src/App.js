@@ -28,18 +28,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const posts = (new Array(20)).fill(null).map((item, index) => ({
-      id: index + 1,
-      image: `https://unsplash.it/500/500?random&i=${index}`,
-      topic: faker.lorem.word(),
-      body: faker.lorem.paragraphs(20),
-      author: faker.name.findName(),
-      createdAt: faker.date.past(),
-      readingTime: faker.random.number({min: 0, max: 30}),
-      title: faker.lorem.words(5)
-    }));
-
-    this.setState({posts: posts});
+    fetch('http://localhost:9000/posts')
+      .then((response) => response.json())
+      .then((posts) => {
+        this.setState({ posts });
+      });
   }
 
   render() {
@@ -67,7 +60,7 @@ class App extends Component {
                 { ...props }
                 post={
                   this.state.posts
-                    .find(post => post.id === parseInt(props.match.params.postId))
+                    .find(post => post.id === props.match.params.postId)
                 }
               />)
             }/>
