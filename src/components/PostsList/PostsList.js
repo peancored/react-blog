@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import './PostsList.css';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Post from '../../components/Post/Post'
 
 class PostsList extends Component {
-  constructor() {
-    super();
-
-    this.handlePostClick = this.handlePostClick.bind(this);
-  }
-
   handlePostClick(event, postId) {
-    this.props.history.push(`/post-details/${postId}`);
+    this.props.history.push(`/posts/${postId}`);
   }
 
   render() {
+    if (!this.props.posts) {
+      return null;
+    }
+
     const postItems = this.props.posts.map((post) => {
       return (
         <Post
@@ -40,4 +39,10 @@ class PostsList extends Component {
   }
 }
 
-export default withRouter(PostsList);
+const mapStateToProps = state => ({
+  posts: state.posts.items
+});
+
+export default withRouter(
+  connect(mapStateToProps, null)(PostsList)
+);

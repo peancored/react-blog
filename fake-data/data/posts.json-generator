@@ -1,0 +1,14 @@
+[
+  {
+    'repeat(25)': {
+      id: '{{objectId()}}',
+      image: 'http://placehold.it/500x500',
+      author: '{{firstName()}} {{surname()}}',
+      topic: '{{lorem(1, "words")}}',
+      title: '{{lorem(5, "words")}}',
+      body: '{{lorem(20, "paragraphs")}}',
+      readingTime: '{{integer(0, 30)}}',
+      createdAt: '{{date(new Date(2014, 0, 1), new Date()).toISOString()}}'
+    }
+  }
+]
